@@ -1,0 +1,19 @@
+startup_message off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %{W}%c %{g}]'
+altscreen on
+
+bind - resize -1
+bind + resize +1
+
+screen -t sh 0 /bin/bash
+screen -t sh 1 /bin/bash
+
+defscrollback 20000
+
+split
+focus
+resize 15
+select 0
+focus
+screen -t mail 9 mutt
