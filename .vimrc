@@ -58,7 +58,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Backup options
 set backup
-set backupdir=~/backups
+set backupdir=~/Private/.vimbackup
 
 " Allow Flint to work with QuickFix
 set efm+=%f\ \ %l%m
