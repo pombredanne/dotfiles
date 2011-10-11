@@ -74,6 +74,11 @@ function set_max_make_jobs() {
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
+
+# GPG keyring is stored on an encrypted USB drive that should always be
+# mounted in the same location.
+export GNUPGHOME=/media/jiprivate/.gnupg/
+
 set_path
 configure_shell
 configure_editor
