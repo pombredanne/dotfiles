@@ -76,3 +76,8 @@ set linebreak
 " possible then present a list.
 set wildmode=list:longest
 set wildmenu
+
+" Git helpers.  These abbreviations just expand to standard commit tags.
+ab gsob Signed-off-by: Jamie Iles <jamie@jamieiles.com>
+ab gab Acked-by: Jamie Iles <jamie@jamieiles.com>
+ab grb Reviewed-by: Jamie Iles <jamie@jamieiles.com>
