@@ -13,7 +13,6 @@ export HISTSIZE=50000
 # Source global definitions
 source_if_exists /etc/bashrc
 source_if_exists /etc/bash_completion
-source_if_exists ${HOME}/.bashrc.picochip
 source_if_exists ${HOME}/bin/git-completion.bash
 source_if_exists ${HOME}/bin/stgit-completion.bash
 
