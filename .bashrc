@@ -76,7 +76,19 @@ alias ll='ls --color=auto -l'
 
 # GPG keyring is stored on an encrypted USB drive that should always be
 # mounted in the same location.
-export GNUPGHOME=/media/jiprivate/.gnupg/
+function configure_gpg() {
+	if [ -d /media/jiprivate/.gnupg ] && \
+		! pgrep -c gpg-agent >/dev/null; then
+		export GNUPGHOME=/media/jiprivate/.gnupg/
+		eval `gpg-agent --daemon --enable-ssh-support \
+			--write-env-file "${HOME}/.gpg-agent-info"`
+		export GPG_TTY=`tty`
+	elif [ -f ${HOME}/.gpg-agent-info ]; then
+		. "${HOME}/.gpg-agent-info"
+		export GPG_AGENT_INFO
+		export SSH_AUTH_SOCK
+	fi
+}
 
 # For android builds, use ccache.
 export USE_CCACHE=1
@@ -85,3 +97,4 @@ set_path
 configure_shell
 configure_editor
 set_max_make_jobs
+configure_gpg
