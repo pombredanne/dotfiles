@@ -78,6 +78,9 @@ alias ll='ls --color=auto -l'
 # mounted in the same location.
 export GNUPGHOME=/media/jiprivate/.gnupg/
 
+# For android builds, use ccache.
+export USE_CCACHE=1
+
 set_path
 configure_shell
 configure_editor
