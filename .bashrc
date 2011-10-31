@@ -77,9 +77,10 @@ alias ll='ls --color=auto -l'
 # GPG keyring is stored on an encrypted USB drive that should always be
 # mounted in the same location.
 function configure_gpg() {
+	export GNUPGHOME=/media/jiprivate/.gnupg/
+
 	if [ -d /media/jiprivate/.gnupg ] && \
 		! pgrep -c gpg-agent >/dev/null; then
-		export GNUPGHOME=/media/jiprivate/.gnupg/
 		eval `gpg-agent --daemon --enable-ssh-support \
 			--write-env-file "${HOME}/.gpg-agent-info"`
 		export GPG_TTY=`tty`
