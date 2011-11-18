@@ -80,3 +80,16 @@ source ~/.mutt/aliases
 set alias_file=~/.mutt/aliases
 
 source ~/.mutt/accounts
+auto_view application/octet-stream
+auto_view application/pgp
+set mailcap_path="${HOME}/.mailcap:/etc/mailcap"
+
+# Sidebar bindings
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
