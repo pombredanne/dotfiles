@@ -67,6 +67,8 @@ set pgp_auto_decode=yes
 
 set sort=threads
 set mail_check=5
+set timeout=10
+set beep_new=yes
 set tilde
 set include
 set mime_forward=ask-no
