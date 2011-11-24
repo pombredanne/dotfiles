@@ -62,8 +62,17 @@ color index red black ~D
 
 # GPG integration
 source /usr/share/doc/mutt/examples/gpg.rc
-# Handle legacy inline GPG messages
-set pgp_auto_decode=yes
+
+# For mail clients that do multipart messages in traditonal format and use DOS
+# line endings.  That sounds like a couple of bad things, but they do appear!
+#
+# Prefer the text/plain first so we can read it properly, and pipe the gpg
+# output through a sed call that removes the DOS line endings.  If we're only
+# viewing text then this *should* be relatively harmless...
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f | sed -e 's///g'"
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f | sed -e 's///g'"
+message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
+alternative_order text/plain text/html
 
 set sort=threads
 set mail_check=5
@@ -85,13 +94,3 @@ source ~/.mutt/accounts
 auto_view application/octet-stream
 auto_view application/pgp
 set mailcap_path="${HOME}/.mailcap:/etc/mailcap"
-
-# Sidebar bindings
-# ctrl-n, ctrl-p to select next, prev folder
-# ctrl-o to open selected folder
-bind index \CP sidebar-prev
-bind index \CN sidebar-next
-bind index \CO sidebar-open
-bind pager \CP sidebar-prev
-bind pager \CN sidebar-next
-bind pager \CO sidebar-open
