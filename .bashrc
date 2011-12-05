@@ -73,6 +73,7 @@ function set_max_make_jobs() {
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
+alias tmux='tmux -2'
 
 # GPG keyring is stored on an encrypted USB drive that should always be
 # mounted in the same location.
