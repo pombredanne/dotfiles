@@ -94,3 +94,7 @@ source ~/.mutt/accounts
 auto_view application/octet-stream
 auto_view application/pgp
 set mailcap_path="${HOME}/.mailcap:/etc/mailcap"
+
+# mutt macros for mu
+macro index <F8> "<shell-escape>mu find -a ~/Private/.mu -c -m ~/Private/mail -l ~/Private/.mu/search " "mu find"
+macro index <F9> "<change-folder-readonly>~/Private/.mu/search" "display mu find results"
