@@ -77,7 +77,6 @@ alias ll='ls --color=auto -l'
 alias tmux='tmux -2'
 
 function start_gpg_agent() {
-	echo "foo"
 	if ! pgrep -c gpg-agent >/dev/null; then
 		eval `gpg-agent --daemon --enable-ssh-support \
 			--write-env-file "${HOME}/.gpg-agent-info"`
@@ -85,11 +84,12 @@ function start_gpg_agent() {
 }
 
 function configure_gpg() {
+	[ "$XAUTHORITY" == "" ] || start_gpg_agent
+
 	if [ -f ${HOME}/.gpg-agent-info ]; then
 		. "${HOME}/.gpg-agent-info"
 		export GPG_AGENT_INFO
 		export SSH_AUTH_SOCK
-		export GPG_TTY=`tty`
 	fi
 }
 
