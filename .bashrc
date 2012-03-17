@@ -15,6 +15,7 @@ source_if_exists /etc/bashrc
 source_if_exists /etc/bash_completion
 source_if_exists ${HOME}/bin/git-completion.bash
 source_if_exists ${HOME}/bin/stgit-completion.bash
+source_if_exists ${HOME}/.bashrc.local
 
 function configure_editor() {
 	# Add an alias called 'gvimr' this will open the file in an existing
@@ -75,20 +76,20 @@ alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
 alias tmux='tmux -2'
 
-# GPG keyring is stored on an encrypted USB drive that should always be
-# mounted in the same location.
-function configure_gpg() {
-	export GNUPGHOME=/media/jiprivate/.gnupg/
-
-	if [ -d /media/jiprivate/.gnupg ] && \
-		! pgrep -c gpg-agent >/dev/null; then
+function start_gpg_agent() {
+	echo "foo"
+	if ! pgrep -c gpg-agent >/dev/null; then
 		eval `gpg-agent --daemon --enable-ssh-support \
 			--write-env-file "${HOME}/.gpg-agent-info"`
-		export GPG_TTY=`tty`
-	elif [ -f ${HOME}/.gpg-agent-info ]; then
+	fi
+}
+
+function configure_gpg() {
+	if [ -f ${HOME}/.gpg-agent-info ]; then
 		. "${HOME}/.gpg-agent-info"
 		export GPG_AGENT_INFO
 		export SSH_AUTH_SOCK
+		export GPG_TTY=`tty`
 	fi
 }
 

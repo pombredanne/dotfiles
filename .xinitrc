@@ -1,7 +1,7 @@
+bash --login -c start_gpg_agent
 xscreensaver -nosplash &
 ck-launch-session nm-applet &
-/usr/bin/gnome-keyring-daemon --start --components=gpg
-/usr/bin/gnome-keyring-daemon --start --components=pkcs11
-/usr/bin/gnome-keyring-daemon --start --components=secrets
-/usr/bin/gnome-keyring-daemon --start --components=ssh
+ck-launch-session gnome-keyring-daemon --start --components=pkcs11
+ck-launch-session gnome-keyring-daemon --start --components=secrets
+ck-launch-session gnome-keyring-daemon --start --components=ssh
 exec /usr/bin/awesome
