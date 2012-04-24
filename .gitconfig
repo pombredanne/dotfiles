@@ -1,0 +1,15 @@
+[user]
+	name = Jamie Iles
+	email = jamie@jamieiles.com
+[color]
+	ui = auto
+[merge]
+	tool = meld
+	conflictstyle = diff3
+[log]
+	decorate = full
+[alias]
+	graph = log --oneline --graph
+[diff]
+	renames = copies
+	mnemonicprefix = true
