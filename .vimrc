@@ -83,3 +83,5 @@ ab gab Acked-by: Jamie Iles <jamie@jamieiles.com>
 ab grb Reviewed-by: Jamie Iles <jamie@jamieiles.com>
 
 colorscheme wombat256mod
+
+set number
