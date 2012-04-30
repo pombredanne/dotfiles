@@ -78,7 +78,7 @@ alias tmux='tmux -2'
 
 function start_gpg_agent() {
 	if ! pgrep -c gpg-agent >/dev/null; then
-		eval `gpg-agent --daemon --enable-ssh-support \
+		eval `gpg-agent --daemon \
 			--write-env-file "${HOME}/.gpg-agent-info"`
 	fi
 }
