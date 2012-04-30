@@ -57,7 +57,7 @@ function configure_shell() {
 	if type __git_ps1 > /dev/null 2>&1 ; then
 		PS1='[\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\W\[\e[0m\]\[\e[1;33m\]$(__git_ps1 "(%s)")\[\e[0m\]]\$ '
 	else
-		PS1='[\[\e[1;32m\]\u\[\e[0m\]@\h \[\e[1;34m\]\W\[\e[0m\]\[\e[1;33m\]\[\e[0m\]]\$ '
+		PS1='[\[\e[1;32m\]\u\[\e[0m\]@\h${debian_chroot:+($debian_chroot)} \[\e[1;34m\]\W\[\e[0m\]\[\e[1;33m\]\[\e[0m\]]\$ '
 	fi
 }
 
