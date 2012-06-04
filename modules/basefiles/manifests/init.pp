@@ -7,6 +7,10 @@ define dotfile {
 }
 
 class mail($mailpath) {
+	file { "/home/jamie/bin":
+		mode => 755
+	}
+
 	file { "/home/jamie/bin/checkmail":
 		source => "puppet:///modules/basefiles/checkmail",
 		mode => 700,
