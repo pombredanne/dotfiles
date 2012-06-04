@@ -2,7 +2,7 @@ import "basefiles"
 
 package { ['msmtp', 'offlineimap', 'tmux', 'mutt', 'git', 'kvm',
 	'virt-manager', 'chromium-browser', 'vim-nox', 'ctags', 'cscope',
-	'maildir-utils']: }
+	'maildir-utils', 'gnupg-agent']: }
 
 class machine($suffix, $mailpath) {
 	class { commonfiles: }
