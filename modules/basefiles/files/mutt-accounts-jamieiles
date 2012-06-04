@@ -1,0 +1,4 @@
+set from=jamie@jamieiles.com
+set folder=~/Private/mail/jamieiles
+set spoolfile=~/Private/mail/jamieiles/INBOX
+mailboxes =INBOX

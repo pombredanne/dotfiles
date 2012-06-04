@@ -1,0 +1,13 @@
+defaults
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+ 
+account default
+host stbeehive.oracle.com
+port 465
+tls_starttls off
+auth on
+user jamie.iles@oracle.com
+from jamie.iles@oracle.com
+logfile /home/jamie/.msmtp.log

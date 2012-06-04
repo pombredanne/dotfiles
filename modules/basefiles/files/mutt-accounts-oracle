@@ -1,0 +1,4 @@
+set from=jamie.iles@oracle.com
+set folder=~/Private/mail/ksplice
+set spoolfile=~/Private/mail/ksplice/INBOX
+mailboxes =INBOX =kernelwatch =support

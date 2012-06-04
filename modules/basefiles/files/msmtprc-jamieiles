@@ -1,0 +1,13 @@
+defaults
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+ 
+account default
+host smtp.gmail.com
+port 465
+tls_starttls off
+auth on
+user jamie@jamieiles.com
+from jamie@jamieiles.com
+logfile /home/jamie/.msmtp.log

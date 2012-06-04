@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$#" != "1" ]; then
+	echo "Usage: $0 full|short" >&2
+	exit 1
+fi
+
+if [ "$MAILPATH" = "" ]; then
+	echo "MAILPATH not defined."
+	exit 1
+fi
+
+[ -d $MAILPATH ] || exit 0
+
+OPTS=""
+[ "$1" = "short" ] && OPTS="-q"
+
+test -d $MAILPATH && offlineimap $OPTS -o >/dev/null 2>&1
+test -d $MAILPATH && mu index -m $MAILPATH >/dev/null 2>&1

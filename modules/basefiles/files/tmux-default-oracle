@@ -1,0 +1,5 @@
+neww -n Logbook -t 7 'vim -S ~/Documents/logbook.vim'
+neww -n zephyr -t 8
+neww -n Mail -t 9 mutt
+select-layout main-vertical
+set-window-option -t 8 monitor-activity on

@@ -13,22 +13,16 @@ set editor=vim
 set help=no
 
 set reply_self=yes
+set fast_reply=yes
 set metoo=yes
 
 set realname="Jamie Iles"
-set from=jamie.iles@oracle.com
 set use_from=yes
 set use_envelope_from=yes
 
 set header_cache="~/Private/mail/.hcache"
 set message_cachedir="~/Private/mail/.body-cache"
 set record="~/Private/mail/sent"
-# set imap_user="jamie.iles@oracle.com"
-# set folder="imaps://stbeehive.oracle.com"
-# set spoolfile="+INBOX"
-set folder=~/Private/mail/ksplice
-set spoolfile=~/Private/mail/ksplice/INBOX
-mailboxes =INBOX =kernelwatch =support
 
 ignore *
 unignore  Date To From: Subject CC
@@ -39,7 +33,7 @@ auto_view text/html
 
 set text_flowed=no
 
-color attachment brightmagenta default
+color attachment brightmagenta default  
 color error brightwhite red   # errors yell at you in red
 color hdrdefault red default   # headers
 color indicator black white # currently selected message
@@ -116,3 +110,5 @@ set mailcap_path="${HOME}/.mailcap:/etc/mailcap"
 
 macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Maildir/search " "mu find"
 macro index <F9> "<change-folder-readonly>~/Maildir/search" "mu find results"
+
+source ~/.mutt.accounts

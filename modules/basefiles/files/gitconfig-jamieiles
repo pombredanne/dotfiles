@@ -1,13 +1,15 @@
 [user]
-	name = Jamie Iles
 	email = jamie@jamieiles.com
+	name = Jamie Iles
 [color]
 	ui = auto
 [merge]
-	tool = meld
+	tool = vimdiff
 	conflictstyle = diff3
 [log]
 	decorate = full
+[sendemail]
+	smtpserver = /usr/bin/msmtp
 [alias]
 	graph = log --oneline --graph
 [diff]

@@ -1,0 +1,28 @@
+[mbnames]
+enabled = yes
+filename = ~/Private/mail/muttrc.mailboxes
+header = "mailboxes "
+peritem = "~/Private/mail/%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[general]
+accounts = jamieiles
+maxsyncaccounts = 6
+
+[Account jamieiles]
+localrepository = jamieiles-local
+remoterepository = jamieiles-remote
+sep = /
+autorefresh = 1
+quick = 10
+
+[Repository jamieiles-local]
+type = Maildir
+localfolders = ~/Private/mail/jamieiles
+
+[Repository jamieiles-remote]
+type = Gmail
+remoteuser = jamie@jamieiles.com
+folderfilter = lambda foldername: foldername in ['INBOX']
+subscribedonly = no
