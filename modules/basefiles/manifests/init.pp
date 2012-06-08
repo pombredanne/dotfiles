@@ -6,15 +6,15 @@ define dotfile {
 	}
 }
 
-class mail($mailpath) {
-	file { "/home/jamie/bin":
-		mode => 755
-	}
-
-	file { "/home/jamie/bin/checkmail":
-		source => "puppet:///modules/basefiles/checkmail",
+define binfile {
+	file { "/home/jamie/bin/$name":
+		source => "puppet:///modules/basefiles/$name",
 		mode => 700,
 	}
+}
+
+class mail($mailpath) {
+	binfile { checkmail: }
 
 	cron { shortmail:
 		command => "MAILPATH=/home/jamie/Private/mail/$mailpath /home/jamie/bin/checkmail short",
@@ -30,5 +30,9 @@ class mail($mailpath) {
 }
 
 class commonfiles {
+	file { "/home/jamie/bin":
+		mode => 755
+	}
 	dotfile { ['bashrc', 'inputrc', 'vim', 'vimrc', 'tmux.conf', 'muttrc']: }
+	binfile { ['getpass', 'addpass', 'genpass']: }
 }
