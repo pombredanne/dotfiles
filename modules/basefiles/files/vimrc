@@ -82,6 +82,14 @@ ab gsob Signed-off-by: Jamie Iles <jamie@jamieiles.com>
 ab gab Acked-by: Jamie Iles <jamie@jamieiles.com>
 ab grb Reviewed-by: Jamie Iles <jamie@jamieiles.com>
 
+set t_Co=256
 colorscheme wombat256mod
 
 set number
+
+call pathogen#infect()
+let mapleader = ","
+let g:mapleader = ","
+map <Leader>g :Ggrep 
+map <Leader>q :copen<cr>
+map <Leader>Q :cclose<cr>

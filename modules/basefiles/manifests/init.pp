@@ -6,6 +6,16 @@ define dotfile {
 	}
 }
 
+define dir {
+	file { "/home/jamie/.$name":
+		source => "puppet:///modules/basefiles/$name",
+		owner => jamie,
+		mode => 0644,
+		ensure => directory,
+		recurse => true,
+	}
+}
+
 define binfile {
 	file { "/home/jamie/bin/$name":
 		source => "puppet:///modules/basefiles/$name",
@@ -33,6 +43,7 @@ class commonfiles {
 	file { "/home/jamie/bin":
 		mode => 755
 	}
-	dotfile { ['bashrc', 'inputrc', 'vim', 'vimrc', 'tmux.conf', 'muttrc']: }
+	dotfile { ['bashrc', 'inputrc', 'vimrc', 'tmux.conf', 'muttrc']: }
 	binfile { ['getpass', 'addpass', 'genpass']: }
+	dir { ['vim']: }
 }
