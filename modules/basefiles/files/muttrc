@@ -23,6 +23,7 @@ set use_envelope_from=yes
 set header_cache="~/Private/mail/.hcache"
 set message_cachedir="~/Private/mail/.body-cache"
 set record="~/Private/mail/sent"
+set postponed="~/Private/mail/postponed"
 
 ignore *
 unignore  Date To From: Subject CC
@@ -108,7 +109,7 @@ auto_view application/octet-stream
 auto_view application/pgp
 set mailcap_path="${HOME}/.mailcap:/etc/mailcap"
 
-macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Maildir/search " "mu find"
-macro index <F9> "<change-folder-readonly>~/Maildir/search" "mu find results"
+macro index <F8> "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Private/mailsearch " "mu find"
+macro index <F9> "<change-folder-readonly>~/Private/mailsearch" "mu find results"
 
 source ~/.mutt.accounts
