@@ -86,8 +86,8 @@ function start_gpg_agent() {
 function configure_gpg() {
 	[ "$XAUTHORITY" == "" ] || start_gpg_agent
 
-	if [ -f ${HOME}/.gpg-agent-info ]; then
-		. "${HOME}/.gpg-agent-info"
+	if [ -f ${HOME}/.gnupg/gpg-agent-info-$(hostname) ]; then
+		. "${HOME}/.gnupg/gpg-agent-info-$(hostname)"
 		export GPG_AGENT_INFO
 		export SSH_AUTH_SOCK
 		export GPG_TTY=`tty`
