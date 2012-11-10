@@ -85,7 +85,7 @@ ab grb Reviewed-by: Jamie Iles <jamie@jamieiles.com>
 set t_Co=256
 colorscheme wombat256mod
 
-set number
+set relativenumber
 
 call pathogen#infect()
 let mapleader = ","
