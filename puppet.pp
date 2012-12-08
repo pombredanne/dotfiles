@@ -37,7 +37,7 @@ node cedar {
 	}
 }
 
-node gallagher, page {
+node gallagher, page, sycamore {
 	class { machine:
 		mailpath => 'jamieiles',
 		suffix => 'jamieiles',
