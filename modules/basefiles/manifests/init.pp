@@ -24,16 +24,21 @@ define binfile {
 }
 
 class mail($mailpath) {
-	binfile { checkmail: }
+	file { "/home/jamie/bin/checkmail":
+		content => template("basefiles/checkmail.erb"),
+		mode => 700,
+		owner => jamie,
+		group => jamie,
+	}
 
 	cron { shortmail:
-		command => "MAILPATH=/home/jamie/Private/mail/$mailpath /home/jamie/bin/checkmail short",
+		command => "/home/jamie/bin/checkmail short",
 		user => jamie,
 		minute => "*/5",
 	}
 
 	cron { fullmail:
-		command => "MAILPATH=/home/jamie/Private/mail/$mailpath /home/jamie/bin/checkmail full",
+		command => "/home/jamie/bin/checkmail full",
 		user => jamie,
 		minute => "3",
 	}

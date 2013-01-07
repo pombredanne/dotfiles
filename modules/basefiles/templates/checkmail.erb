@@ -1,0 +1,16 @@
+#!/bin/bash
+
+MAILPATH="${HOME}/Private/mail/<%= @mailpath %>"
+
+if [ "$#" != "1" ]; then
+	MODE="short"
+else
+	MODE=$1
+fi
+
+OPTS=""
+[ "$1" = "short" ] && OPTS="-q"
+
+imapfilter >/dev/null 2>&1
+offlineimap $OPTS -o >/dev/null 2>&1
+mu index -m $MAILPATH >/dev/null 2>&1
