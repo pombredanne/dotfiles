@@ -1,2 +1,3 @@
+rename-session jamieiles
 neww -n mail -t 9 mutt
 neww -n irssi -t 8 irssi

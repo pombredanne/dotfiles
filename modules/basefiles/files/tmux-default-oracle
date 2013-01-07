@@ -1,3 +1,4 @@
+rename-session oracle
 neww -n Logbook -t 7 'vim -S ~/Documents/logbook.vim'
 neww -n zephyr -t 8
 neww -n Mail -t 9 mutt
