@@ -39,6 +39,12 @@ node cedar {
 		mailpath => 'ksplice',
 		suffix => 'oracle',
 	}
+
+	cron { logbook:
+		command => "\${HOME}/Documents/logbook/update",
+		user => jamie,
+		minute => "*/5",
+	}
 }
 
 node gallagher, page, sycamore {
