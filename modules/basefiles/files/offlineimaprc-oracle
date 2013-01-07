@@ -27,5 +27,6 @@ remotehost = stbeehive.oracle.com
 remoteport = 993
 ssl = yes
 remoteuser = jamie.iles@oracle.com
-folderfilter = lambda foldername: foldername in ['INBOX', 'kernelwatch', 'support']
+folderfilter = lambda foldername: foldername in ['INBOX', 'kernelwatch', 'support', 'signups', 'reviews', 'quantum', 'recruiting']
 subscribedonly = no
+cert_fingerprint = eba5fe8ba4ea50ee94aca39f8512aafb02b22549

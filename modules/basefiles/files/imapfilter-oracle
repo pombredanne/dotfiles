@@ -1,0 +1,35 @@
+netrc_user = function (server)
+	status, user = pipe_from("cat ~/.netrc | perl -pe \"$/ = ''; " ..
+				 "s/\\n/ /g\" | perl -ne 'm/" .. server ..
+				 "\\s+login\\s+(\\S+)/; print $1;'")
+	return user
+end
+
+netrc_pass = function (server)
+	status, passwd = pipe_from("cat ~/.netrc | perl -pe \"$/ = ''; " ..
+				   "s/\\n/ /g\" | perl -ne 'm/" .. server ..
+				   "\\s+login\\s+\\S+\\s+password\\s+(\\S+)/; print $1;'")
+	return passwd
+end
+
+oracle = IMAP {
+	server = 'stbeehive.oracle.com',
+	username = netrc_user('stbeehive.oracle.com'),
+	password = netrc_pass('stbeehive.oracle.com'),
+	ssl = 'ssl3'
+}
+
+mailboxes, folders = oracle:list_all()
+
+signups = oracle.INBOX:contain_to('ksplice_signups_us_grp@oracle.com')
+signups:move_messages(oracle['signups'])
+
+reviews = oracle.INBOX:contain_cc('ksplice_review_us_grp@oracle.com') +
+	  oracle.INBOX:contain_to('ksplice_review_us_grp@oracle.com')
+reviews:move_messages(oracle['reviews'])
+
+quantum = oracle.INBOX:contain_to('ksplice_quantum_us_grp@oracle.com')
+quantum:move_messages(oracle['quantum'])
+
+recruiting = oracle.INBOX:contain_from('urecruit_us@oracle.com')
+recruiting:move_messages(oracle['recruiting'])

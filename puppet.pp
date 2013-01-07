@@ -2,7 +2,7 @@ import "basefiles"
 
 package { ['msmtp', 'offlineimap', 'tmux', 'mutt', 'git', 'kvm',
 	'virt-manager', 'chromium-browser', 'vim-nox', 'ctags', 'cscope',
-	'maildir-utils', 'gnupg-agent', 'mosh']: }
+	'maildir-utils', 'gnupg-agent', 'mosh', 'imapfilter']: }
 
 class machine($suffix, $mailpath) {
 	class { commonfiles: }
@@ -26,6 +26,10 @@ class machine($suffix, $mailpath) {
 	}
 	file { "/home/jamie/.gitconfig":
 		source => "puppet:///modules/basefiles/gitconfig-$suffix",
+		owner => jamie,
+	}
+	file { "/home/jamie/.imapfilter/config.lua":
+		source => "puppet:///modules/basefiles/imapfilter-$suffix",
 		owner => jamie,
 	}
 }
