@@ -111,3 +111,6 @@ func GitGrepWord()
 	call GitGrep(getreg('z'))
 endf
 nmap <Leader>G :call GitGrepWord()<CR>
+
+" syntastic won't be able to compile kernel source correctly.
+autocmd BufRead,BufNewFile */linux-2.6/* let g:syntastic_c_checkers=[]
