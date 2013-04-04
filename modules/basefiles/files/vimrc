@@ -116,3 +116,9 @@ nmap <Leader>G :call GitGrepWord()<CR>
 
 " syntastic won't be able to compile kernel source correctly.
 autocmd BufRead,BufNewFile */linux-2.6/* let g:syntastic_c_checkers=[]
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_max_files = 100000
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
