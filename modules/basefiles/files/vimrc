@@ -122,6 +122,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_max_files = 100000
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 set encoding=utf-8
-set statusline=%f%m%r%w\ 
+set statusline=%f:%l%m%r%w\ 
 set statusline+=%{fugitive#statusline()}\ 
 set laststatus=2
