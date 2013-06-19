@@ -11,6 +11,7 @@ set pager_context=1
 set pager_index_lines=6
 set editor=vim
 set help=no
+set pager_stop
 
 set reply_self=yes
 set fast_reply=yes
