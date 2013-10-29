@@ -31,5 +31,8 @@ reviews:move_messages(oracle['reviews'])
 quantum = oracle.INBOX:contain_to('ksplice_quantum_us_grp@oracle.com')
 quantum:move_messages(oracle['quantum'])
 
+dashboard = oracle.INBOX:contain_from('ksplicedashboard_us@oracle.com')
+dashboard:move_messages(oracle['kernelwatch'])
+
 recruiting = oracle.INBOX:contain_from('urecruit_us@oracle.com')
 recruiting:move_messages(oracle['recruiting'])
